@@ -100,6 +100,37 @@
             © 2024 AI Systems | Powered by Virat's Code
         </div>
     </div>
+<script>
+document.addEventListener('click', (e) => {
+    // 1. Ek chota element banao
+    const particle = document.createElement('div');
+    document.body.appendChild(particle);
 
+    // 2. Particle ka style (Deadly Blue Glow)
+    const size = Math.random() * 20 + 10;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.background = '#ffaa00'; // Orange glow jaisa tere badge ka color hai
+    particle.style.borderRadius = '50%';
+    particle.style.position = 'fixed';
+    particle.style.pointerEvents = 'none';
+    particle.style.left = `${e.clientX}px`;
+    particle.style.top = `${e.clientY}px`;
+    particle.style.boxShadow = '0 0 15px #0078d4';
+    particle.style.zIndex = '9999';
+
+    // 3. Animation: Upar jaake gayab hona
+    const animation = particle.animate([
+        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+        { transform: 'translate(-50%, -150%) scale(0)', opacity: 0 }
+    ], {
+        duration: 800,
+        easing: 'ease-out'
+    });
+
+    // 4. Kaam khatam hone par mita do
+    animation.onfinish = () => particle.remove();
+});
+</script>
 </body>
 </html>
