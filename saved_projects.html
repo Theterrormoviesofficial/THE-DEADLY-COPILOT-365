@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Projects - Virat Nain</title>
+    <style>
+        /* 1st Page wala wahi Premium Blue Theme */
+        body {
+            background: linear-gradient(135deg, #0078d4 0%, #001e36 100%);
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 85%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .output-box {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            min-height: 120px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            border-left: 5px solid #ffaa00; /* Virat's Signature Orange */
+            word-wrap: break-word;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-new { background: #ffaa00; color: #001e36; }
+        .btn-home { background: white; color: #0078d4; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2 style="margin: 0;">SAVED WORK</h2>
+        <p style="font-size: 12px; opacity: 0.8;">Data from AI Writer</p>
+
+        <div class="output-box" id="displayArea">
+            Loading project...
+        </div>
+
+        <div class="btn-group">
+            <a href="typing.html" class="btn btn-new">➕ CREATE NEW ENTRY</a>
+            <a href="index.html" class="btn btn-home">🏠 MAIN MENU</a>
+        </div>
+    </div>
+
+    <script>
+        // LocalStorage se data uthana
+        const data = localStorage.getItem('savedContent');
+        const box = document.getElementById('displayArea');
+
+        if(data && data.trim() !== "") {
+            box.innerText = data;
+        } else {
+            box.innerText = "No data found! Please go back and type something.";
+        }
+    </script>
+
+</body>
+</html>
+
