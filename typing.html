@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Typing Editor - Virat Nain</title>
+    <title>AI Writer Pro - Virat Nain</title>
     <style>
+        /* Modern Blue Theme */
         body { 
             background: linear-gradient(135deg, #0078d4 0%, #001e36 100%); 
             font-family: 'Segoe UI', sans-serif; 
@@ -13,36 +14,55 @@
         }
         .card { 
             background: rgba(255, 255, 255, 0.95); padding: 25px; 
-            border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
             width: 90%; max-width: 400px; color: #333;
         }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .dot { width: 12px; height: 12px; background: #107c10; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        
         textarea { 
-            width: 100%; height: 180px; border: 2px solid #0078d4; 
-            border-radius: 8px; padding: 12px; box-sizing: border-box; 
-            margin-top: 15px; font-size: 14px; outline: none;
+            width: 100%; height: 200px; border: 2px solid #ddd; 
+            border-radius: 12px; padding: 15px; box-sizing: border-box; 
+            font-size: 15px; outline: none; transition: 0.3s;
+            background: #fafafa;
         }
-        .btn-row { display: flex; gap: 10px; margin-top: 20px; }
+        /* Neon Glow Effect when typing */
+        textarea:focus { 
+            border-color: #0078d4; 
+            box-shadow: 0 0 15px rgba(0, 120, 212, 0.3); 
+            background: white;
+        }
+
+        #stats { 
+            font-size: 12px; color: #0078d4; font-weight: bold; 
+            margin-top: 8px; text-align: right;
+        }
+
+        .btn-row { display: flex; gap: 12px; margin-top: 20px; }
         .btn-save { 
             background: #0078d4; color: white; border: none; 
-            padding: 12px; border-radius: 5px; flex: 2; 
+            padding: 14px; border-radius: 50px; flex: 2; 
             font-weight: bold; cursor: pointer; transition: 0.3s;
         }
         .btn-back { 
-            background: #eee; border: none; padding: 12px; 
-            border-radius: 5px; flex: 1; text-decoration: none; 
-            color: #333; text-align: center; font-weight: bold;
+            background: #f0f0f0; border: none; padding: 14px; 
+            border-radius: 50px; flex: 1; text-decoration: none; 
+            color: #555; text-align: center; font-weight: bold;
         }
-        .btn-save:hover { background: #005a9e; }
+        .btn-save:hover { background: #005a9e; transform: translateY(-2px); }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="width: 12px; height: 12px; background: #107c10; border-radius: 50%;"></div>
-            <b style="color: #0078d4;">AI WRITER MODE</b>
+        <div class="header">
+            <div><span class="dot"></span><b>AI WRITER MODE</b></div>
+            <span style="font-size: 10px; color: #888;">VER 3.0</span>
         </div>
         
-        <textarea id="viratInput" placeholder="Virat, yahan apna kamaal likho..."></textarea>
+        <textarea id="viratInput" placeholder="Virat, apna 'Deadly' content yahan likho..."></textarea>
+        
+        <div id="stats">Words: 0 | Chars: 0</div>
         
         <div class="btn-row">
             <a href="Presentation.html" class="btn-back">BACK</a>
@@ -51,21 +71,31 @@
     </div>
 
     <script>
+        // Word aur Character Counter Logic
+        const area = document.getElementById('viratInput');
+        const stats = document.getElementById('stats');
+
+        area.addEventListener('input', () => {
+            const text = area.value.trim();
+            const words = text ? text.split(/\s+/).length : 0;
+            const chars = text.length;
+            stats.innerText = `Words: ${words} | Chars: ${chars}`;
+        });
+
+        // Save and Redirect Logic
         function saveAndGo() {
-            const val = document.getElementById('viratInput').value;
+            const val = area.value;
             if(val.trim() === "") { 
-                alert("Virat, kuch likhna toh padega na!"); 
+                alert("Pehle kuch likho, Virat!"); 
                 return; 
             }
-            
-            // Data memory mein save ho raha hai
             localStorage.setItem('savedContent', val);
-            
-            // 4th page (Jo tune rename kiya hai) par bhej raha hai
             window.location.href = "saved_projects.html";
         }
     </script>
+
 </body>
 </html>
+
 
 
