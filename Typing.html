@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Typing Editor - Virat Nain</title>
+    <style>
+        body {
+            background-color: #f3f2f1; /* Gray Background */
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .editor-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f3f2f1;
+            padding-bottom: 10px;
+        }
+
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #107c10; /* Green color for 'Live' */
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        h3 { margin: 0; color: #323130; font-size: 18px; }
+
+        /* Asli Typing Box */
+        textarea {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #edebe9;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+            box-sizing: border-box;
+            background-color: #faf9f8;
+            transition: border 0.3s;
+        }
+
+        textarea:focus {
+            border: 2px solid #0078d4;
+            background-color: white;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-save {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-back {
+            background-color: #f3f2f1;
+            color: #323130;
+            border: 1px solid #d2d0ce;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="editor-container">
+        <div class="header">
+            <h3><span class="status-dot"></span> AI Writer</h3>
+            <span style="font-size: 12px; color: #605e5c;">Mode: Presentation</span>
+        </div>
+
+        <textarea placeholder="Start typing your presentation content here, Virat..."></textarea>
+
+        <div class="controls">
+            <a href="presentation.html" class="btn-back">BACK</a>
+            <button class="btn-save" onclick="alert('Presentation Saved Successfully!')">SAVE PROJECT</button>
+        </div>
+    </div>
+
+</body>
+</html>

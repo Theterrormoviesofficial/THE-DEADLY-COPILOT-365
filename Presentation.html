@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dashboard - Virat Nain</title>
+    <style>
+        /* 1st Page wala Premium Gradient */
+        body {
+            background: linear-gradient(135deg, #0078d4 0%, #001e36 100%);
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+
+        .dashboard-container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px); /* Premium Glass Effect */
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 320px;
+            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            background: #ffaa00;
+            color: #001e36;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h2 { margin-bottom: 25px; letter-spacing: 1px; }
+
+        .file-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+            border-left: 4px solid #ffaa00;
+        }
+
+        .file-item {
+            font-size: 13px;
+            margin: 10px 0;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 1st Page wala white glowing button */
+        .btn-action {
+            display: block;
+            background: white;
+            color: #0078d4;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-action:hover {
+            transform: scale(1.05);
+            background: #ffaa00;
+            color: #001e36;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <div class="badge">AI WORKSPACE ACTIVE</div>
+        <h2>DASHBOARD</h2>
+        
+        <div class="file-box">
+            <div class="file-item">📁 Presentation_Final.ai</div>
+            <div class="file-item">📁 Virat_Project_2024.ai</div>
+            <div class="file-item">📁 Tech_Draft_v1.ai</div>
+        </div>
+
+        <a href="typing.html" class="btn-action">START AI WRITER</a>
+        
+        <p style="font-size: 10px; margin-top: 20px; opacity: 0.6;">
+            SECURE CONNECTION : VIRAT SERVER 01
+        </p>
+    </div>
+
+</body>
+</html>
