@@ -1,18 +1,71 @@
-<script>
-function saveText() {
-    const textValue = document.querySelector('textarea').value;
-    if(textValue.trim() === "") {
-        alert("Pehle kuch likho toh sahi, Virat!");
-        return;
-    }
-    // Browser ki memory mein text save kar raha hai
-    localStorage.setItem('viratSavedText', textValue);
-    alert('AI: Project Saved Successfully!');
-    // 4th page par le jane ke liye
-    window.location.href = "saved_projects.html";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Typing Editor - Virat Nain</title>
+    <style>
+        body { 
+            background: linear-gradient(135deg, #0078d4 0%, #001e36 100%); 
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0; color: white;
+        }
+        .card { 
+            background: rgba(255, 255, 255, 0.95); padding: 25px; 
+            border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            width: 90%; max-width: 400px; color: #333;
+        }
+        textarea { 
+            width: 100%; height: 180px; border: 2px solid #0078d4; 
+            border-radius: 8px; padding: 12px; box-sizing: border-box; 
+            margin-top: 15px; font-size: 14px; outline: none;
+        }
+        .btn-row { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-save { 
+            background: #0078d4; color: white; border: none; 
+            padding: 12px; border-radius: 5px; flex: 2; 
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-back { 
+            background: #eee; border: none; padding: 12px; 
+            border-radius: 5px; flex: 1; text-decoration: none; 
+            color: #333; text-align: center; font-weight: bold;
+        }
+        .btn-save:hover { background: #005a9e; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 12px; height: 12px; background: #107c10; border-radius: 50%;"></div>
+            <b style="color: #0078d4;">AI WRITER MODE</b>
+        </div>
+        
+        <textarea id="viratInput" placeholder="Virat, yahan apna kamaal likho..."></textarea>
+        
+        <div class="btn-row">
+            <a href="Presentation.html" class="btn-back">BACK</a>
+            <button class="btn-save" onclick="saveAndGo()">SAVE PROJECT</button>
+        </div>
+    </div>
 
-// Apne Save Button mein 'onclick' zaroori hai
-document.querySelector('.btn-save').setAttribute('onclick', 'saveText()');
-</script>
+    <script>
+        function saveAndGo() {
+            const val = document.getElementById('viratInput').value;
+            if(val.trim() === "") { 
+                alert("Virat, kuch likhna toh padega na!"); 
+                return; 
+            }
+            
+            // Data memory mein save ho raha hai
+            localStorage.setItem('savedContent', val);
+            
+            // 4th page (Jo tune rename kiya hai) par bhej raha hai
+            window.location.href = "saved_projects.html";
+        }
+    </script>
+</body>
+</html>
+
 
